@@ -35,12 +35,8 @@ public class ClamAVDownloader
 		TraditionalAntivirus.TAV.sqLiteDB.insertAllWaitingSignatures();
 		TraditionalAntivirus.TAV.sqLiteDB.resetDatabaseOptimization();
 		
-		//TODO delete main/
-		
-		/*downloadFile("https://database.clamav.net/bytecode.cvd", "bytecode.cvd");
-		extractDatabase(new File(TraditionalAntivirus.TAV.workingDirectory, "bytecode"),
-				new File(TraditionalAntivirus.TAV.workingDirectory, "bytecode.cvd"));*/
-		
+		//delete the main folder
+		new File(TraditionalAntivirus.TAV.workingDirectory, "main").delete();
 		
 		downloadDailyUpdate();
 	}
@@ -61,7 +57,8 @@ public class ClamAVDownloader
 		TraditionalAntivirus.TAV.sqLiteDB.insertAllWaitingSignatures();
 		TraditionalAntivirus.TAV.sqLiteDB.resetDatabaseOptimization();
 		
-		//TODO delete daily/
+		//delete the daily folder
+		new File(TraditionalAntivirus.TAV.workingDirectory, "daily").delete();
 	}
 	
 	private void downloadFile(String url, String fileName) throws IOException

@@ -5,6 +5,7 @@ import com.konloch.tav.scanning.FileSignature;
 
 import java.io.File;
 import java.sql.*;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -298,6 +299,11 @@ public class SQLiteDB
 			pstmt.setLong(2, value);
 			pstmt.executeUpdate();
 		}
+	}
+	
+	public void printDatabaseStatistics()
+	{
+		System.out.println("Counted " + NumberFormat.getInstance().format(TraditionalAntivirus.TAV.sqLiteDB.countFileSignatures()) + " malware signatures in the SQLite db");
 	}
 	
 	public void close()

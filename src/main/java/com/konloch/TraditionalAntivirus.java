@@ -86,7 +86,7 @@ public class TraditionalAntivirus
 			}
 			
 			//print the db stats
-			malwareDB.printDatabaseStatistics();
+			sqLiteDB.printDatabaseStatistics();
 		}
 		catch (Exception e)
 		{
